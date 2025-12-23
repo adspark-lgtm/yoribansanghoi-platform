@@ -1,7 +1,7 @@
 {
   "name": "yoribansanghoi-ax-platform",
   "version": "1.0.0",
-  "description": "요리반상회 AI 푸드 IP AX 플랫폼 - 아날로그 레시피를 디지털 트윈으로 변환",
+  "description": "요리반상회 AI 푸드 IP AX 플랫폼",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -25,6 +25,8 @@
     "axios": "^1.6.8",
     "sharp": "^0.33.3",
     "tailwindcss": "^3.4.3",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.12",
     "framer-motion": "^11.0.28",
     "recharts": "^2.12.4",
     "lucide-react": "^0.372.0",
