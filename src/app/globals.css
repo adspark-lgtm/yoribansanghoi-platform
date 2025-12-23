@@ -1,0 +1,400 @@
+/* ============================================
+   요리반상회 AX 플랫폼 - 글로벌 스타일
+   ============================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CSS 변수 정의
+   ============================================ */
+:root {
+  /* 요리반상회 브랜드 컬러 */
+  --yori-primary: #C41E3A;
+  --yori-secondary: #8B0000;
+  --yori-accent: #FF6B6B;
+  --yori-gold: #D4AF37;
+  --yori-cream: #FFF8E7;
+  
+  /* 다크 테마 */
+  --bg-primary: #0F0F1A;
+  --bg-secondary: #1A1A2E;
+  --bg-tertiary: #16213E;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0B0;
+  --text-muted: #6B7280;
+  
+  /* 그라디언트 */
+  --gradient-primary: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+  --gradient-dark: linear-gradient(180deg, #0F0F1A 0%, #1A1A2E 100%);
+  
+  /* 그림자 */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-yori: 0 4px 20px rgba(196, 30, 58, 0.3);
+  
+  /* 애니메이션 */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ============================================
+   기본 스타일 리셋
+   ============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-noto-sans-kr), 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ============================================
+   타이포그래피
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--yori-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--yori-accent);
+}
+
+/* ============================================
+   컴포넌트 스타일
+   ============================================ */
+@layer components {
+  /* 버튼 스타일 */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 
+           font-medium rounded-xl transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#C41E3A] to-[#8B0000] 
+           text-white hover:opacity-90 
+           focus:ring-[#C41E3A] shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-slate-700 text-white hover:bg-slate-600
+           focus:ring-slate-500;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-[#C41E3A] text-[#C41E3A]
+           hover:bg-[#C41E3A] hover:text-white
+           focus:ring-[#C41E3A];
+  }
+  
+  .btn-gold {
+    @apply bg-gradient-to-r from-[#D4AF37] to-[#B8860B]
+           text-slate-900 font-bold hover:opacity-90
+           focus:ring-[#D4AF37] shadow-lg;
+  }
+  
+  /* 카드 스타일 */
+  .card {
+    @apply bg-slate-800/50 backdrop-blur-sm rounded-2xl 
+           border border-slate-700/50 p-6
+           transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:border-[#C41E3A]/30 hover:shadow-lg
+           hover:shadow-[#C41E3A]/10 hover:-translate-y-1;
+  }
+  
+  .card-glass {
+    @apply bg-white/5 backdrop-blur-xl rounded-2xl
+           border border-white/10;
+  }
+  
+  /* 입력 필드 */
+  .input {
+    @apply w-full px-4 py-3 bg-slate-700/50 border border-slate-600
+           rounded-xl text-white placeholder-slate-400
+           focus:outline-none focus:border-[#C41E3A] focus:ring-1 focus:ring-[#C41E3A]
+           transition-all duration-200;
+  }
+  
+  .input-error {
+    @apply border-red-500 focus:border-red-500 focus:ring-red-500;
+  }
+  
+  /* 라벨 */
+  .label {
+    @apply block text-sm font-medium text-slate-300 mb-2;
+  }
+  
+  /* 배지 */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-[#C41E3A]/20 text-[#FF6B6B];
+  }
+  
+  .badge-success {
+    @apply bg-emerald-500/20 text-emerald-400;
+  }
+  
+  .badge-warning {
+    @apply bg-amber-500/20 text-amber-400;
+  }
+  
+  .badge-info {
+    @apply bg-sky-500/20 text-sky-400;
+  }
+  
+  /* 섹션 */
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* 그라디언트 텍스트 */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#C41E3A] to-[#FF6B6B] 
+           bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-[#D4AF37] to-[#FFD700]
+           bg-clip-text text-transparent;
+  }
+  
+  /* 구분선 */
+  .divider {
+    @apply border-t border-slate-700/50;
+  }
+  
+  /* 로딩 스피너 */
+  .spinner {
+    @apply w-8 h-8 border-4 border-slate-600 border-t-[#C41E3A]
+           rounded-full animate-spin;
+  }
+}
+
+/* ============================================
+   유틸리티 스타일
+   ============================================ */
+@layer utilities {
+  /* 스크롤바 커스텀 */
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background: rgba(196, 30, 58, 0.5);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: rgba(196, 30, 58, 0.7);
+  }
+  
+  /* 숨김 스크롤바 */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* 글래스모피즘 */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  /* 텍스트 그라데이션 애니메이션 */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+  
+  /* 페이드 인 */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  /* 슬라이드 업 */
+  .slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  
+  /* 반응형 텍스트 */
+  .text-responsive {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+  
+  /* 반응형 제목 */
+  .heading-responsive {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
+  }
+}
+
+/* ============================================
+   애니메이션 키프레임
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ============================================
+   반응형 미디어 쿼리
+   ============================================ */
+@media (max-width: 640px) {
+  h1 { font-size: 1.875rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .section {
+    @apply py-12;
+  }
+  
+  .card {
+    @apply p-4;
+  }
+}
+
+/* 다크 모드 강제 (시스템 설정 무시) */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* 프린트 스타일 */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* 접근성 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 포커스 가시성 */
+:focus-visible {
+  outline: 2px solid var(--yori-primary);
+  outline-offset: 2px;
+}
+
+/* 선택 영역 스타일 */
+::selection {
+  background: rgba(196, 30, 58, 0.3);
+  color: white;
+}

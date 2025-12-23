@@ -1,0 +1,62 @@
+{
+  "name": "yoribansanghoi-ax-platform",
+  "version": "1.0.0",
+  "description": "요리반상회 AI 푸드 IP AX 플랫폼 - 아날로그 레시피를 디지털 트윈으로 변환",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "deploy:staging": "vercel --env staging",
+    "deploy:production": "vercel --prod",
+    "db:migrate": "node scripts/migrate.js",
+    "lambda:deploy": "cd api/lambda && npm run deploy"
+  },
+  "dependencies": {
+    "next": "14.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@aws-sdk/client-dynamodb": "^3.540.0",
+    "@aws-sdk/lib-dynamodb": "^3.540.0",
+    "@aws-sdk/client-rekognition": "^3.540.0",
+    "@aws-sdk/client-s3": "^3.540.0",
+    "@anthropic-ai/sdk": "^0.20.0",
+    "zustand": "^4.5.2",
+    "swr": "^2.2.5",
+    "axios": "^1.6.8",
+    "sharp": "^0.33.3",
+    "tailwindcss": "^3.4.3",
+    "framer-motion": "^11.0.28",
+    "recharts": "^2.12.4",
+    "lucide-react": "^0.372.0",
+    "clsx": "^2.1.0",
+    "date-fns": "^3.6.0",
+    "zod": "^3.22.5",
+    "react-hook-form": "^7.51.3",
+    "@hookform/resolvers": "^3.3.4",
+    "nanoid": "^5.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "typescript": "^5.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.0",
+    "prettier": "^3.2.5",
+    "jest": "^29.7.0",
+    "@testing-library/react": "^15.0.2",
+    "@testing-library/jest-dom": "^6.4.2",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "author": "요리반상회",
+  "license": "UNLICENSED"
+}
